@@ -1,0 +1,52 @@
+<LoginWindow>:
+    canvas.before:
+        Color:
+            rgba: 0,0,0,0
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation:'vertical'
+        padding:[20,150,20,200] 
+        spacing:20
+        Label:
+            text: 'Login To Continue'
+            font_size:28
+            size_hint_y: None
+            height:'36dp'
+            borders: 2, 'solid', (1,0,0,1)
+        GridLayout:
+            rows:2
+            cols:2
+            size_hint_y: None  
+            spacing:10
+            Label:
+                text:'Username'
+                halign:'left'
+                height:'48dp'
+                font_size:20
+            TextInput:
+                id:login
+                mutliline:
+                height:'48dp'
+                font_size:30
+            Label:
+                text:'Password'
+                halign:'left'
+                height:'48dp'
+                font_size:20
+            TextInput:
+                id:password
+                mutliline:False
+                width:'150dp' 
+                height:'48dp'
+                font_size:30
+        BoxLayout:
+            orientation:'vertical'
+            Button:
+                text:'Login'
+                size_hint_y: None
+                size_hint_x:None
+                height: '48dp'
+                width: '150dp'
+                on_press: root.login(login.text,password.text)
