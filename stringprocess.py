@@ -10,29 +10,24 @@ error_pattern = re.compile(r'(\*ERROR\*\,)([\w ]+)')
 error_matches = error_pattern.findall(file_content)
 # subbed_errors = pattern.sub(r'\1', s)
 
+import json
+
+errors_json = str(json.dumps(error_matches))
+
 # ERROR PATTERN DEBUGGING CODE
-for error in error_matches:
-    print(error[0] + error[1])
-
-
+# for error in error_matches:
+#     print(error[0] + error[1])
 
 # Str pattern analyser
 str_pattern = re.compile(r'str\d[\w -?]*')
 str_matches = str_pattern.findall(file_content)
-
-
+str_json = str(json.dumps(str_matches))
 
 working_pattern = re.compile(r'Working..: (\w*)')
 working = working_pattern.findall(file_content)[0]
-
 GoneBit = re.findall(r'GoneBit..: (\w*)', file_content)[0]
-
 Errors = re.findall(r'Errors..: (\w*)', file_content)[0]
-
 Warnings = re.findall(r'Warnings: (\w*)', file_content)[0]
-
-
-
 
 # Details analyser
 
@@ -55,6 +50,30 @@ date_of_logfile         = details_pattern.findall(temp[11])[0][1]
 cache_slss              = details_pattern.findall(temp[12])[0][1]
 first_program_version   = details_pattern.findall(temp[13])[0][1]
 
+
+import MySQLdb
+
+
+db = MySQLdb.connect(host="localhost",  # your host
+                     user="root",       # username
+                     passwd="18061996",     # password
+                     db="dbtester")   # name of the database
+
+# Create a Cursor object to execute queries.
+
+# Create a Cursor object to execute queries.
+cur = db.cursor()
+#
+
+query = 'INSERT into log (id , agent_ver ,dlp_fam ,sys_num ,srx_date , figr_fileused ,cache_type ,child_process_type ,iserver_add ,iserver_ver ,crnt_mmm_mthd ,date_of_logfile ,cache_slss ,first_prog_ver ,errors_json ,str_json ,working ,gonebit ,error ,warning ) VALUES (1, 'agent_version', dlp_family, system_number, srx_date, figr_file_used, cache_type, child_process_type, IServer_address, IServer_version, Crnt_mmm_mthd, date_of_logfile, cache_slss, first_program_version, errors_json, str_json, working, GoneBit, Errors, Warnings );'
+
+# values( "hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello", "hello");
+
+# query = select * from log;
+# Select data from table using SQL query.
+cur.execute(query)
+
+db.commit()
 
 
 # DEBUGGING CODE
