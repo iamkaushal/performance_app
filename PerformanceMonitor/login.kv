@@ -1,0 +1,70 @@
+<LoginWindow>:
+    canvas.before:
+        Color:
+            rgba: 0,0,0,0
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation:'vertical'
+        padding:[20,50,20,200] 
+        spacing:25
+        Label:
+            text: 'Performance Monitoring Application'
+            color: 1,1,1,1 
+            font_size:36
+            bold:True
+            italic:True
+            size_hint_y: None
+            size_hint_x: None
+            height:'48dp'
+            width:'1400dp'
+        Label:
+            text: 'Login To Continue'
+            color: 1,0.6,0,1 
+            font_size:28
+            size_hint_y: None
+            size_hint_x: None
+            italic:True
+            height:'36dp'
+            width:'1300dp'
+        GridLayout:
+            rows:2
+            cols:2
+            size_hint_y: None  
+            size_hint_x:None
+            height:'100dp'
+            width:'1000dp'
+            spacing:20
+            Label:
+                text:'Username'
+                color: 1,1,1,1 
+                italic:True
+                font_size:20
+            TextInput:
+                id:login
+                mutliline:False
+                font_size:20
+                width:'500dp'
+            Label:
+                text:'Password'
+                color: 1,1,1,1 
+                italic:True
+                font_size:20
+                width:'500dp'
+            TextInput:
+                id:password
+                mutliline:False
+                font_size:20
+        BoxLayout:
+            orientation:'vertical'
+            size_hint_y: None
+            size_hint_x:None
+            padding:[200,10,10,10] 
+            Button:
+                text:'Login'
+                size_hint_y: None
+                size_hint_x:None
+                height: '48dp'
+                width: '150dp'
+                on_press: root.login(login.text,password.text)

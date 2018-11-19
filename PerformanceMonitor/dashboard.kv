@@ -1,0 +1,292 @@
+<DashboardWindow>:
+    canvas.before:
+        Color:
+            rgba: 0,0,0,0
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation:'vertical'
+        padding:[20,0,20,0] 
+        spacing:20
+        size_hint: (None,None)
+        Label:
+            text: 'Dashboard'
+            bold:True
+            italic:True
+            font_size:30
+            size_hint: (None,None)
+            height:'50dp'
+            width:'1330dp'
+        BoxLayout:
+            orientation:'horizontal'
+            spacing:10
+            size_hint_y: None
+            size_hint_x: None
+            height:'125dp'
+            width:'400dp'
+            font_size:'24dp'
+            Label:
+                text:'Working'
+                id:working_count
+                canvas.before:
+                    Color:
+                        rgb:0,0.3,1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                    Color:
+                        rgba: 0, 0.6, 1, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+            Label:
+                text:'Gone Bit'
+                id:gonebit_count
+                canvas.before:
+                    Color:
+                        rgb:1,0,0.26
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                    Color:
+                        rgba: 1, 0, 0.4, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+            Label:
+                text:'Errors'
+                id:error_count
+                canvas.before:
+                    Color:
+                        rgb:0.7,0,1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                    Color:
+                        rgba: 0.7, 0, 1, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+            Label:
+                text:'Warning'
+                id:warning_count
+                canvas.before:
+                    Color:
+                        rgb:1,0.3,0
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                    Color:
+                        rgba: 1, 0.4, 0, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+        BoxLayout:
+            orientation:'horizontal'
+            spacing:20
+            size_hint_y: None
+            size_hint_x: None
+            width:'750dp'
+            height:'50dp'
+            Label:
+                text:'Enter Search String'
+                id:warning_count
+                font_size:24
+                italic:True
+                color:1,1,1,1
+            TextInput:
+                id:login
+                mutliline:False
+                font_size:28
+        BoxLayout:
+            orientation:'horizontal'
+            padding:[20,50,20,0] 
+            size_hint_x:None
+            size_hint_y:None
+            height:'400dp'
+            spacing:150
+            GridLayout:
+                cols: 2
+                size_hint_y: None
+                size_hint_x: None
+                padding:[20,50,20,0] 
+                width:'150dp'
+                height:'400dp'  
+                Label:
+                    text: "Agent Version"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp' 
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp' 
+                Label:
+                    text: "Dlp Family"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp' 
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp' 
+                Label:
+                    text: "System Number"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                Label:
+                    text: "SRX Date"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                Label:
+                    text: "FIGR   File used"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                Label:
+                    text: "Cache Type"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                Label:
+                    text: "Child/Process type"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                Label:
+                    text: "IServer Address"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                Label:
+                    text: "IServer Version"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                Label:
+                    text: "Crnt Mmm Mthd"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                Label:
+                    text: "Date Of LogFile"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                Label:
+                    text: "Cache Slss"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                Label:
+                    text: "1st ProgramVersion"
+                    color: 1,1,1,1 
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+                CheckBox:
+                    group: "option"
+                    size_hint_y: None
+                    size_hint_x: None
+                    width:'150dp'
+                    height:'20dp'
+            ScrollView:
+                size_hint: (None, None)
+                size: (1000, 400)
+                padding:[20,50,20,0] 
+                BoxLayout:
+                    orientation:'horizontal'
+                    TextInput:
+                        font_size:28  
