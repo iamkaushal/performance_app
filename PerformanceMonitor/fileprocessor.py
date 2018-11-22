@@ -5,13 +5,13 @@ import datetime
 from database import DatabaseManagement
 
 class FileProcessor:
-    
+
     def processFiles(self):
         db = DatabaseManagement()
         for name in os.listdir('./logs'):
             json_str = self.splitFileAndInsert('./logs/'+name)
             db.insertDataToDatabase(json_str)
-    
+
 
     def splitFileAndInsert(self,name):
         with open(name) as f:
@@ -26,8 +26,8 @@ class FileProcessor:
             working = working_pattern.findall(file_content)[0]
             GoneBit = re.findall(r'GoneBit..: (\w*)', file_content)[0]
             Errors = re.findall(r'Errors..: (\w*)', file_content)[0]
-            Warnings = re.findall(r'Warnings: (\w*)', file_content)[0] 
-            details_pattern = re.compile(r'(:\s)(.*)') 
+            Warnings = re.findall(r'Warnings: (\w*)', file_content)[0]
+            details_pattern = re.compile(r'(:\s)(.*)')
             temp = re.split('\n', file_content)
             abs_path = os.path.abspath(name)
             now = datetime.datetime.now()

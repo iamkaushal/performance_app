@@ -6,6 +6,7 @@ import time
 
 name = 'Drlll_cfg_D40_11_252_112_121_0_2018-September-19_2148b.err'
 # name = 'Srlll_cfg_K40_11_252_112_122_0_2018-September-20_2148b.err'
+
 with open(name, 'r') as f:
     file_content = f.read()
     file_name = name
@@ -47,28 +48,25 @@ with open(name, 'r') as f:
     dst = "/home/kaushal/Desktop/performance_app/backup"
     shutil.move(src, dst)
 
-    data = [abs_path, creation_date, insertion_date, file_name, agent_version, dlp_family, system_number, srx_date, figr_file_used, cache_type,  child_process_type, IServer_address, IServer_version, Crnt_mmm_mthd,
+    data = [file_content,abs_path, creation_date, insertion_date, file_name, agent_version, dlp_family, system_number, srx_date, figr_file_used, cache_type,  child_process_type, IServer_address, IServer_version, Crnt_mmm_mthd,
     date_of_logfile, cache_slss, first_program_version, errors_json, str_json, working, GoneBit, Errors, Warnings]
     print(data)
 
 import MySQLdb
 db = MySQLdb.connect(host="localhost",  # your host
                      user="root",       # username
-                     passwd="dbtester",     # password
+                     passwd="password",     # password
                      db="dbtester")   # name of the database
 
 # Create a Cursor object to execute queries.
 cur = db.cursor()
 
-file_name = 'testing'
-query = '''INSERT into log_details (  file_path, creation_date, insert_date, file_name, agent_ver ,dlp_fam ,sys_num ,srx_date , figr_fileused ,
+
+query = '''INSERT into log_details ( file_content, file_path, creation_date, insert_date, file_name, agent_ver ,dlp_fam ,sys_num ,srx_date , figr_fileused ,
 cache_type ,child_process_type ,iserver_add ,iserver_ver ,crnt_mmm_mthd ,date_of_logfile ,
 cache_slss ,first_prog_ver ,errors_json ,str_json ,working ,gonebit ,error ,warning )
 
-VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s, %s, %s)'''
-
-data = [abs_path, creation_date, insertion_date, file_name, agent_version, dlp_family, system_number, srx_date, figr_file_used, cache_type,  child_process_type, IServer_address, IServer_version, Crnt_mmm_mthd,
-date_of_logfile, cache_slss, first_program_version, errors_json, str_json, working, GoneBit, Errors, Warnings]
+VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s, %s, %s)'''
 
 # insert data into table using SQL query.
 cur.execute(query, data)
